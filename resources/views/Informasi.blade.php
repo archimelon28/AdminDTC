@@ -5,6 +5,11 @@
             <div class="block-header">
             </div>
             <!-- Basic Table -->
+		@if(Session::has('alert-success'))
+                <div class="alert alert-success">
+                    <strong>{{ \Illuminate\Support\Facades\Session::get('alert-success') }}</strong>
+                </div>
+            @endif
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
@@ -31,9 +36,9 @@
                                     <th>Email1</th>
                                     <th>Email2</th>
                                     <th>Alamat2</th>
-                                    <th>Longitude</th>
                                     <th>Latitude</th>
-                                    <th>About</th>
+                                   <th>Longitude</th> 
+					<th>About</th>
                                     <th>Aksi</th>
                                 </tr>
                                 </thead>
@@ -42,7 +47,7 @@
                                 @foreach($informasi as $i)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
-                                        <td><img src="assets\images\upload\catering\logo\{{$i->logo}}" style="height: 100px;width: 100px"></td>
+                                        <td><img src="dtc_profile/uploads/logo/{{$i->logo}}" style="height: 100px;width: 100px"></td>
                                         <td>{{$i->nama_perusahaan}}</td>
                                         <td>{{$i->alamat}}</td>
                                         <td>{{$i->telepon}}</td>
@@ -51,9 +56,9 @@
                                         <td>{{$i->email1}}</td>
                                         <td>{{$i->email2}}</td>
                                         <td>{{$i->alamat2}}</td>
-                                        <td>{{$i->longtitude}}</td>
                                         <td>{{$i->latitude}}</td>
-                                        <td>{{$i->about}}</td>
+						<td>{{$i->longitude}}</td>       
+                                 		<td>{{$i->about}}</td>
                                         <td>
                                             <form action="{{ route('informasi.destroy', $i->id_informasi) }}" method="post">
                                                 {{ csrf_field() }}

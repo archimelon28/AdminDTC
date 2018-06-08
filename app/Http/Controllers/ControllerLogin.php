@@ -16,7 +16,7 @@ class ControllerLogin extends Controller
     public function index()
     {
         if(!Session::get('login')){
-            return redirect('login')->with('alert','Kamu harus login dulu');
+            return redirect('login')->with('alert','You must login first');
         }
         else{
             return view('index');
@@ -29,7 +29,7 @@ class ControllerLogin extends Controller
         $username = $request->username;
         $password = $request->password;
         $data = ModelAdmin::where('username',$username)->where('isAktif',1)->first();
-        if(count($data) > 0)
+        if($data->count() > 0)
         { //apakah email tersebut ada atau tidak
             if(Hash::check($password,$data->password)){
                 Session::put('nama',$data->nama);
@@ -40,17 +40,17 @@ class ControllerLogin extends Controller
                 return redirect('/');
             }
             else{
-                return redirect('login')->with('alert','Password atau Email, Salah !'.Hash::check($password,$data->password));
+                return redirect('login')->with('alert','Password or Username wrong !'.Hash::check($password,$data->password));
             }
         }
         else{
-            return redirect('login')->with('alert','Password atau Email, Salahaa!');
+            return redirect('login')->with('alert','Not registed yet');
         }
     }
 
     public function logout(){
         Session::flush();
-        return redirect('login')->with('alert','Kamu sudah logout');
+        return redirect('login')->with('alert','You already logout');
     }    /**
  * Show the form for creating a new resource.
  *

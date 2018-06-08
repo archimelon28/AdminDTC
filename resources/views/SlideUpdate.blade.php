@@ -62,7 +62,7 @@
                                 <div class="body">
                                     <form action="/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
                                         <div class="fallback">
-                                            <img src="..\..\assets\images\upload\catering\slide\{{$Slide->gambar}}" style="height: 100px;width: 100px">
+                                            <img src="../../dtc_profile/uploads/slide/{{$Slide->gambar}}" style="height: 100px;width: 100px">
                                         </div>
                                     </form>
                                 </div>
@@ -70,9 +70,11 @@
                                     <label for="email">File:</label>
                                     <input name="gambar" type="file"/>
                                 </div>
-                                <button type="submit" class="btn btn-default btn-circle-lg waves-effect waves-circle waves-float">
-                                    <i class="material-icons">save</i>
-                                </button>
+                                <div style="text-align: right">
+                                                <button type="submit" class="btn btn-default btn-circle-lg waves-effect waves-circle waves-float">
+                                                    <i class="material-icons">save</i>
+                                                </button>
+                                            </div>
                             </div>
                         </div>
                     </div>

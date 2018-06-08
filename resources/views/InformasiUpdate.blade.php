@@ -204,7 +204,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" class="form-control" value="{{$Informasi->longtitude}}" name="longtitude" />
+                                                <input type="text" class="form-control" value="{{$Informasi->longitude}}" name="longtitude" />
                                             </div>
                                         </div>
                                     </div>
@@ -246,9 +246,11 @@
                                             <div class="form-line">
                                                 <input type="text" class="form-control" value="{{$Informasi->about}}" name="about" />
                                             </div>
-                                            <button type="submit" class="btn btn-default btn-circle-lg waves-effect waves-circle waves-float">
-                                                <i class="material-icons">save</i>
-                                            </button>
+                                            <div style="text-align: right">
+                                                <button type="submit" class="btn btn-default btn-circle-lg waves-effect waves-circle waves-float">
+                                                    <i class="material-icons">save</i>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

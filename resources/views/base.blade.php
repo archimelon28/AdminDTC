@@ -35,6 +35,8 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{{asset('assets/css/themes/all-themes.css')}}" rel="stylesheet" />
+
+    <link href="{{asset('assets/plugins/bootstrap-select/css/bootstrap-select.css')}}" rel="stylesheet" />
 </head>
 
 <body class="theme-red">
@@ -60,154 +62,160 @@
         <div class="navbar-header">
             <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
             <a href="javascript:void(0);" class="bars"></a>
-            <a class="navbar-brand" href="/">Admin Konsuldok</a>
+            <a class="navbar-brand" href="/dtc_admin">Admin Dwi Tunggal Citra</a>
         </div>
     </div>
 </nav>
 <!-- #Top Bar -->
 <section>
-    <!-- Left Sidebar -->
-    <aside id="leftsidebar" class="sidebar">
-        <!-- User Info -->
-        <div class="user-info">
-            <div class="image">
-                <img src="{{asset('assets/images/user.png')}}" width="48" height="48" alt="User" />
-            </div>
-            <div class="info-container">
-                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{Session::get('nama')}}</div>
+        <!-- Left Sidebar -->
 
-                <!-- <div class="btn-group user-helper-dropdown">
-                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
-                      <ul class="dropdown-menu pull-right">
-                         <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
-                         <li role="seperator" class="divider"></li>
-                         <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                         <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                         <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
-                         <li role="seperator" class="divider"></li>
-                         <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
-                     </ul>
-                </div> -->
-            </div>
-        </div>
-        <!-- #User Info -->
-        <!-- Menu -->
-        <div class="menu">
-            <ul class="list">
-                <li class="header">MAIN NAVIGATION</li>
-                @php if(Session::get('roles') == 1)
-                {
-                @endphp
-                <li>
-                    <a href="/">
-                        <i class="material-icons">home</i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/admin">
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image">
+                    <img src="{{asset('assets/images/user.png')}}" width="48" height="48" alt="User" />
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{Session::get('nama')}}</div>
+                </div>
+            </div>     
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="active">
+                        @php if(Session::get('roles') == 1)
+                            {
+                        @endphp
+                            <a href="/dtc_admin">
+                                <i class="material-icons">home</i>
+                                <span>Home</span>
+                            </a>
+                    </li>
+                    <li>
+                    <a href="/dtc_admin/admin">
                         <i class="material-icons">account_box</i>
                         <span>Admin</span>
                     </a>
-                </li>
-                <li>
-                    <a href="/catering">
+                    </li>
+                    <li>
+                    <a href="/dtc_admin/catering">
                         <i class="material-icons">assignment</i>
                         <span>Catering</span>
                     </a>
-                </li>
-                <li>
-                    <a href="/subcatering">
+                    </li>
+                    <li>
+                    <a href="/dtc_admin/subcatering">
                         <i class="material-icons">assignment</i>
                         <span>SubCatering</span>
                     </a>
-                </li>
-                <li>
-                    <a href="/slide">
+                    </li>
+                    <li>
+                    <a href="/dtc_admin/slide">
                         <i class="material-icons">subscriptions</i>
                         <span>Slide</span>
                     </a>
-                </li>
-                <li>
-                    <a href="/berita">
+                    </li>
+                    <li>
+                    <a href="/dtc_admin/berita">
                         <i class="material-icons">assignment</i>
                         <span>Berita</span>
                     </a>
-                </li>
-                <li>
-                    <a href="/informasi">
+                    </li>
+			<li>
+                        <a href="/dtc_admin/pesan">
+                            <i class="material-icons">email</i>
+                            <span>Pesan</span>
+                        </a>
+                    </li>
+                    <li>
+                    <a href="/dtc_admin/informasi">
                         <i class="material-icons">info</i>
                         <span>Informasi</span>
                     </a>
-                </li>
-                <li>
-                    <a href="/logout">
+                    </li>
+                    <li>
+                    <a href="/dtc_admin/logout">
                         <i class="material-icons">lock_open</i>
                         <span>Log Out</span>
                     </a>
-                </li>
-                @php
-                    } else if(Session::get('roles') == 2)
-                    {
-                @endphp
-                <li>
-                    <a href="/">
+                    </li>
+                        @php
+                            } else if(Session::get('roles') == 2)
+                            {
+                        @endphp
+                    <li>
+                    <a href="/dtc_admin">
                         <i class="material-icons">home</i>
                         <span>Home</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/catering">
+                    <a href="/dtc_admin/catering">
                         <i class="material-icons">assignment</i>
                         <span>Catering</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/subcatering">
+                    <a href="/dtc_admin/subcatering">
                         <i class="material-icons">assignment</i>
                         <span>SubCatering</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/slide">
+                    <a href="/dtc_admin/slide">
                         <i class="material-icons">subscriptions</i>
                         <span>Slide</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/berita">
+                    <a href="/dtc_admin/berita">
                         <i class="material-icons">assignment</i>
                         <span>Berita</span>
                     </a>
                 </li>
+		<li>
+                        <a href="/dtc_admin/pesan">
+                            <i class="material-icons">email</i>
+                            <span>Pesan</span>
+                        </a>
+                    </li>
                 <li>
-                    <a href="/informasi">
+                    <a href="/dtc_admin/informasi">
                         <i class="material-icons">info</i>
                         <span>Informasi</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/logout">
+                    <a href="/dtc_admin/logout">
                         <i class="material-icons">lock_open</i>
                         <span>Log Out</span>
                     </a>
                 </li>
                 @php
                     }
-                @endphp
-            </ul>
-        </div>
-        <!-- #Menu -->
-        <!-- Footer -->
-        <div class="legal">
-            <div class="copyright">
-                &copy; 2018 <p>Dwi Tunggal Putra</p>.
+                @endphp   
+                </ul>
             </div>
-        </div>
-        <!-- #Footer -->
-    </aside>
-    <!-- #END# Left Sidebar -->
-</section>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2016 - 2017 <a href="javascript:void(0);">Admin Dwi Tunggal Citra</a>.
+                </div>
+                <div class="version">
+                    <b>Version: </b> 1.0.5
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+        <!-- Right Sidebar -->
+        
+        <!-- #END# Right Sidebar -->
+    </section>
 
 @yield('content')
 

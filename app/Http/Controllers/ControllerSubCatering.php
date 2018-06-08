@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ModelSubCatering;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -63,12 +64,12 @@ class ControllerSubCatering extends Controller
         $SubCatering -> id_catering = $id_catering;
         $SubCatering-> judul = $judul;
         $ext = $gambar->getClientOriginalExtension();
-        $newName = rand(100000,1001238912).".".$ext;
-        $gambar->move('assets\images\upload\catering\gambarsub',$newName);
+        $newName = date('Ymd_his').Session::get('id_admin').".".$ext;
+        $gambar->move('dtc_profile/uploads/subcatering',$newName);
         $SubCatering->gambar= $newName;
         $SubCatering-> deskripsi = $deskripsi;
         $SubCatering->save();
-        return redirect()->route('subcatering.index')->with('alert-success','Berhasil Menambahkan Data!');
+        return redirect()->route('subcatering.index')->with('alert-success','Success insert data!');
     }
 
     /**
@@ -115,11 +116,11 @@ class ControllerSubCatering extends Controller
             $SubCatering->gambar = $SubCatering->gambar;
         }
         else{
-            unlink('assets/images/upload/catering/gambarsub/'.$SubCatering->gambar); //menghapus file lama
+            unlink('dtc_profile/uploads/subcatering/'.$SubCatering->gambar); //menghapus file lama
             $gambar= $request->file('gambar');
             $ext = $gambar->getClientOriginalExtension();
-            $newName = rand(100000,1001238912).".".$ext;
-            $gambar->move('assets/images/upload/catering/gambarsub',$newName);
+            $newName = date('Ymd_his').Session::get('id_admin').".".$ext;
+            $gambar->move('dtc_profile/uploads/subcatering/',$newName);
             $SubCatering->gambar = $newName;
         };
         $deskripsi = $request->input('deskripsi');
@@ -128,7 +129,7 @@ class ControllerSubCatering extends Controller
         $SubCatering-> judul = $judul;
         $SubCatering-> deskripsi = $deskripsi;
         $SubCatering->save();
-        return redirect()->route('subcatering.index')->with('alert-success','Berhasil Menambahkan Data!');
+        return redirect()->route('subcatering.index')->with('alert-success','Success update data!');
     }
 
     /**
@@ -151,10 +152,10 @@ class ControllerSubCatering extends Controller
         }
         elseif (Input::get('Hapus'))
         {
-            DB::table('subcatering')->where('id_subcatering',$id_subcatering)->update([
-                'judul' => '', 'gambar' => 'default.jpg','deskripsi'=>'' , 'isAktif' => 2
-            ]);
+            $data = ModelSubCatering::where('id_subcatering',$id_subcatering)->first();
+            $data->delete();
+            unlink('dtc_profile/uploads/subcatering/'.$data->gambar);
         }
-        return redirect()->route('subcatering.index')->with('alert-success','Berhasil Menambahkan Data!');
+        return redirect()->route('subcatering.index')->with('alert-success','Success delete data!');
     }
 }

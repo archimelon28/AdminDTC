@@ -54,12 +54,6 @@
                                         <div class="fallback">
                                             <input name="gambar" type="file"/>
                                         </div>
-                                        <div class="dz-message">
-                                            <h3 style="text-align: center">Pilih foto</h3>
-                                        </div>
-                                        <div class="fallback">
-                                            <input name="foto" type="file"/>
-                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -77,7 +71,7 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" placeholder="Deskripsi" name="deskripsi" />
+								<textarea class="form-control" id="summary-ckeditor1" name="deskripsi"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -97,12 +91,14 @@
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" placeholder="Deskripsi Lengkap" name="deskripsi_lengkap" />
+								<textarea class="form-control" id="summary-ckeditor" name="deskripsi_lengkap"></textarea>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-default btn-circle-lg waves-effect waves-circle waves-float">
-                                                <i class="material-icons">save</i>
-                                            </button>
+                                            <div style="text-align: right">
+                                                <button type="submit" class="btn btn-default btn-circle-lg waves-effect waves-circle waves-float">
+                                                    <i class="material-icons">save</i>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

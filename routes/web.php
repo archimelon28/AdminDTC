@@ -22,4 +22,5 @@ Route::resource('subcatering','ControllerSubCatering');
 Route::resource('slide','ControllerSlide');
 Route::resource('informasi','ControllerInformasi');
 Route::resource('berita','ControllerBerita');
+Route::post('/sendEmail/{id_pesan}', 'ControllerPesanDetail@sendEmail');
 Route::post('upload_image','ControllerBerita@uploadImage')->name('upload');

@@ -41,18 +41,13 @@
                                 <div class="body">
                                     <form action="/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
                                         <div class="fallback">
-                                            <img src="..\..\assets\images\upload\catering\gambar\{{$Catering->gambar}}" style="height: 100px;width: 100px">
-                                        </div>
-                                        <div class="fallback">
-                                            <img src="assets\images\upload\catering\foto\{{$Catering->foto}}" style="height: 100px;width: 100px">
+                                            <img src="../../dtc_profile/uploads/catering/{{$Catering->gambar}}" style="height: 100px;width: 100px">
                                         </div>
                                     </form>
                                 </div>
                                 <div class="form-group">
                                     <label>Gambar :</label>
                                     <input name="gambar" type="file"/>
-                                    <label>Foto :</label>
-                                    <input name="foto" type="file"/>
                                 </div>
                             </div>
                         </div>
@@ -96,9 +91,11 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-default btn-circle-lg waves-effect waves-circle waves-float">
-                            <i class="material-icons">save</i>
-                        </button>
+                        <div style="text-align: right">
+                                                <button type="submit" class="btn btn-default btn-circle-lg waves-effect waves-circle waves-float">
+                                                    <i class="material-icons">save</i>
+                                                </button>
+                                            </div>
                     </div>
                 </div>
             </form>

@@ -111,11 +111,11 @@ class ControllerInformasi extends Controller
         $Catering-> email1 = $email1;
         $Catering-> email2 = $email2;
         $Catering-> alamat2 = $alamat2;
-        $Catering-> longtitude = $longtitude;
+        $Catering-> longitude = $longtitude;
         $Catering-> latitude = $latitude;
         $Catering-> about = $about;
         $Catering->save();
-        return redirect()->route('informasi.index')->with('alert-success','Berhasil Menambahkan Data!');
+        return redirect()->route('informasi.index')->with('alert-success','Success update data!');
     }
 
     /**

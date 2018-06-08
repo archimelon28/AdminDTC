@@ -71,7 +71,7 @@
                                 <div class="body">
                                     <form action="/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
                                         <div class="fallback">
-                                            <img src="..\..\assets\images\upload\catering\gambarsub\{{$SubCatering->gambar}}" style="height: 100px;width: 100px">
+                                            <img src="../../dtc_profile/uploads/subcatering/{{$SubCatering->gambar}}" style="height: 100px;width: 100px">
                                         </div>
                                     </form>
                                 </div>
@@ -96,9 +96,11 @@
                                                     <input type="text" class="form-control" value="{{$SubCatering->deskripsi}}" name="deskripsi" />
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-default btn-circle-lg waves-effect waves-circle waves-float">
-                                                <i class="material-icons">save</i>
-                                            </button>
+                                            <div style="text-align: right">
+                                                <button type="submit" class="btn btn-default btn-circle-lg waves-effect waves-circle waves-float">
+                                                    <i class="material-icons">save</i>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

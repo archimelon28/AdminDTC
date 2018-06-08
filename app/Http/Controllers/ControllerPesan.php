@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ModelPesan;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Session;
@@ -56,9 +57,12 @@ class ControllerPesan extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_pesan)
     {
-        //
+        DB::table('pesan')->where('id_pesan',$id_pesan)->update(['isRead' => 1  ]);
+
+        $Pesan = \App\ModelPesan::findOrFail($id_pesan);
+        return view('PesanDetail',compact('Pesan'));
     }
 
     /**
@@ -79,8 +83,10 @@ class ControllerPesan extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_pesan)
     {
-        //
+        $data = ModelPesan::where('id_pesan',$id_pesan)->first();
+        $data->delete();
+        return redirect()->route('pesan.index')->with('alert-success','Success delete data!');
     }
 }

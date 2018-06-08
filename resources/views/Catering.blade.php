@@ -5,6 +5,16 @@
             <div class="block-header">
             </div>
             <!-- Basic Table -->
+		@if(Session::has('alert-success'))
+                <div class="alert alert-success">
+                    <strong>{{ \Illuminate\Support\Facades\Session::get('alert-success') }}</strong>
+                </div>
+            @endif
+		@if(Session::has('alert-warning'))
+                <div class="alert alert-warning">
+                    <strong>{{ \Illuminate\Support\Facades\Session::get('alert-warning') }}</strong>
+                </div>
+            @endif
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
@@ -31,7 +41,6 @@
                                     <th>Gambar</th>
                                     <th>Deskripsi</th>
                                     <th>Deskripsi lengkap</th>
-                                    <th>Foto</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -42,10 +51,9 @@
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
                                         <td>{{$c->judul}}</td>
-                                        <td><img src="assets\images\upload\catering\gambar\{{$c->gambar}}" style="height: 100px;width: 100px"></td>
+                                        <td><img src="dtc_profile/uploads/catering/{{$c->gambar}}" style="height: 100px;width: 100px"></td>
                                         <td>{{$c->deskripsi}}</td>
                                         <td>{{$c->deskripsi_lengkap}}</td>
-                                        <td><img src="assets\images\upload\catering\foto\{{$c->foto}}" style="height: 100px;width: 100px"></td>
                                         <td>@php if($c->isAktif == 1)
                                             {
                                                 echo "Aktif";

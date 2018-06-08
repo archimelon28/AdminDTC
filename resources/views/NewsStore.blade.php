@@ -78,10 +78,10 @@
                             <div class="card" >
                                 <div class="body">
                                     <div style="text-align: right">
-                                        <button type="submit" class="btn btn-sm btn-primary">
-                                            Save
-                                        </button>
-                                    </div>
+                                                <button type="submit" class="btn btn-default btn-circle-lg waves-effect waves-circle waves-float">
+                                                    <i class="material-icons">save</i>
+                                                </button>
+                                            </div>
                                 </div>
                             </div>
                         </div>
